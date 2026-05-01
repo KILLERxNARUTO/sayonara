@@ -1,0 +1,502 @@
+/* ─── Contact Form Overlay ─── */
+.contact-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  overflow: visible;
+}
+
+/* ─── Contact Card ─── */
+.contact-card {
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 10, 30, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 3.5rem;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(82, 39, 255, 0.1);
+  overflow: visible !important;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5227FF, #FF9FFC, #B19EEF);
+  border-radius: 32px 32px 0 0;
+  opacity: 0.8;
+}
+
+/* ─── Close Button ─── */
+.contact-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.contact-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ─── Title & Subtitle ─── */
+.contact-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem 0;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.contact-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ─── Form ─── */
+.contact-form {
+  animation: fadeIn 0.6s ease-out;
+  overflow: visible;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: visible;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ─── Form Fields ─── */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  overflow: visible;
+}
+
+.form-field label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #FF9FFC;
+  opacity: 0.9;
+}
+
+.form-field input,
+.form-field select {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.95rem 1.2rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-field input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(82, 39, 255, 0.4);
+  box-shadow: 0 0 20px rgba(82, 39, 255, 0.15), inset 0 0 12px rgba(82, 39, 255, 0.05);
+}
+
+/* ─── Custom Select Dropdown ─── */
+.custom-select {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+}
+
+.custom-select-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.95rem 1.2rem;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+}
+
+.custom-select-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(82, 39, 255, 0.3);
+}
+
+.custom-select-btn:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(82, 39, 255, 0.4);
+  box-shadow: 0 0 20px rgba(82, 39, 255, 0.15), inset 0 0 12px rgba(82, 39, 255, 0.05);
+}
+
+.select-arrow {
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.select-arrow.open {
+  transform: rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: relative;
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(20, 10, 30, 0.9) 100%);
+  border: 1px solid rgba(82, 39, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 12px 12px;
+  margin-top: -1px;
+  z-index: 100;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(82, 39, 255, 0.2);
+  animation: dropdownSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-select-option {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+.custom-select-option:last-child {
+  border-bottom: none;
+}
+
+.custom-select-option:hover {
+  background: rgba(82, 39, 255, 0.15);
+  color: #fff;
+}
+
+.custom-select-option.selected {
+  background: rgba(82, 39, 255, 0.25);
+  color: #FF9FFC;
+  border-left: 3px solid #5227FF;
+  padding-left: calc(1.2rem - 3px);
+}
+
+.option-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5227FF;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.custom-select-option.selected .option-dot {
+  opacity: 1;
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF9FFC' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.8rem;
+}
+
+.form-field select option {
+  background: #0a0a0f;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+}
+
+.form-field select option:checked {
+  background: linear-gradient(#5227FF, #5227FF);
+  color: #fff;
+}
+
+.form-field select option:hover {
+  background: #1a1a2e;
+}
+
+/* ─── Submit Button ─── */
+.contact-submit-btn {
+  padding: 1.1rem 2.5rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.contact-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(82, 39, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(82, 39, 255, 0.2);
+}
+
+.contact-submit-btn:hover::before {
+  left: 100%;
+}
+
+.contact-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* ─── Success State ─── */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(82, 39, 255, 0.2), rgba(255, 159, 252, 0.15));
+  border: 2px solid #5227FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #5227FF;
+  margin-bottom: 1.5rem;
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.success-message {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.success-btn {
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.success-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(82, 39, 255, 0.6);
+  transform: translateX(5px);
+  box-shadow: 0 0 20px rgba(82, 39, 255, 0.2);
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Mobile Responsive ─── */
+@media (max-width: 768px) {
+  .contact-overlay {
+    padding: 1rem;
+  }
+
+  .contact-card {
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-submit-btn {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-close-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 2rem 1.2rem;
+    border-radius: 20px;
+  }
+
+  .contact-title {
+    font-size: 1.4rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    gap: 1.2rem;
+  }
+
+  .form-field label {
+    font-size: 0.75rem;
+  }
+
+  .form-field input,
+  .form-field select {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-submit-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}

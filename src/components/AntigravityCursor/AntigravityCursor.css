@@ -1,0 +1,42 @@
+.antigravity-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cursor-dot {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: screen;
+}
+
+.cursor-dot-main {
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle, #fff 0%, #FF9FFC 40%, rgba(82, 39, 255, 0.6) 100%);
+    box-shadow:
+        0 0 15px rgba(82, 39, 255, 0.8),
+        0 0 40px rgba(255, 159, 252, 0.4),
+        0 0 80px rgba(82, 39, 255, 0.2);
+    transition: width 0.3s ease, height 0.3s ease, margin-left 0.3s ease, margin-top 0.3s ease;
+}
+
+.cursor-dot-main.hovering {
+    width: 40px;
+    height: 40px;
+    margin-left: -11px;
+    margin-top: -11px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(82, 39, 255, 0.4) 60%, transparent 100%);
+}
+
+.cursor-trail {
+    background: radial-gradient(circle, rgba(82, 39, 255, 0.8) 0%, rgba(255, 159, 252, 0.4) 60%, transparent 100%);
+    box-shadow: 0 0 6px rgba(82, 39, 255, 0.5);
+}
